@@ -5,7 +5,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 if (!MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
 }
-
+// Function to connect to MongoDB
 
 interface MongooseCache {
   conn: typeof mongoose | null;
@@ -45,4 +45,5 @@ async function dbConnect() {
   return cached.conn;
 }
 
+// Function to connect to MongoDB
 export default dbConnect;

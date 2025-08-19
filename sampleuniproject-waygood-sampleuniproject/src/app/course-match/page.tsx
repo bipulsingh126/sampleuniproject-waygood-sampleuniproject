@@ -25,6 +25,7 @@ export default function CourseMatchPage() {
     },
   });
 
+  // Submit handler
   async function onSubmit(values: CourseMatchInput) {
     setIsLoading(true);
     setError(null);
@@ -39,7 +40,7 @@ export default function CourseMatchPage() {
       setIsLoading(false);
     }
   }
-
+  // Example description
   const exampleDescription = "I'm a high school student with strong grades in Math and Physics. I love coding, building small robots, and I'm fascinated by artificial intelligence. I'm looking for an undergraduate program at a top-tier university, preferably in the US, that has a great reputation for engineering and a vibrant campus life.";
 
   return (
@@ -75,7 +76,7 @@ export default function CourseMatchPage() {
                   </FormItem>
                 )}
               />
-               <Button 
+                 <Button 
                 type="button" 
                 variant="link" 
                 className="p-0 h-auto text-accent mt-2"

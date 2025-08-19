@@ -5,7 +5,7 @@ const REDIS_URL = process.env.REDIS_URL || 'redis://localhost:6379';
 class RedisService {
   private client: RedisClientType | null = null;
   private isConnected = false;
-
+// Function to connect to Redis
   async connect() {
     if (this.isConnected && this.client) {
       return this.client;
@@ -39,6 +39,7 @@ class RedisService {
     }
   }
 
+// Function to get value from Redis
   async get(key: string): Promise<string | null> {
     try {
       const client = await this.connect();
@@ -49,6 +50,7 @@ class RedisService {
     }
   }
 
+// Function to set value in Redis
   async set(key: string, value: string, expireInSeconds?: number): Promise<boolean> {
     try {
       const client = await this.connect();
@@ -64,6 +66,7 @@ class RedisService {
     }
   }
 
+// Function to delete value from Redis
   async del(key: string): Promise<boolean> {
     try {
       const client = await this.connect();
@@ -75,6 +78,7 @@ class RedisService {
     }
   }
 
+// Function to check if key exists in Redis
   async exists(key: string): Promise<boolean> {
     try {
       const client = await this.connect();
@@ -86,6 +90,7 @@ class RedisService {
     }
   }
 
+// Function to flush keys matching pattern
   async flushPattern(pattern: string): Promise<boolean> {
     try {
       const client = await this.connect();
@@ -100,6 +105,7 @@ class RedisService {
     }
   }
 
+// Function to disconnect from Redis
   async disconnect() {
     if (this.client && this.isConnected) {
       await this.client.quit();

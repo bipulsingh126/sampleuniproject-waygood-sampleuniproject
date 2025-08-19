@@ -76,7 +76,7 @@ export function validateRequest<T>(schema: z.ZodSchema<T>, data: unknown): {
     return { success: false, errors: ['Validation failed'] };
   }
 }
-
+// Function to create error response
 export function createErrorResponse(message: string, details?: string, code?: string) {
   return {
     error: message,
@@ -85,7 +85,7 @@ export function createErrorResponse(message: string, details?: string, code?: st
     timestamp: new Date().toISOString()
   };
 }
-
+// Function to create success response
 export function createSuccessResponse(data?: any, message?: string) {
   return {
     success: true,

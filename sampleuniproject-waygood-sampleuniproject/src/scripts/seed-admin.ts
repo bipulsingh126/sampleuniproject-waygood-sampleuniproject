@@ -6,7 +6,7 @@ async function seedAdmin() {
   try {
     await dbConnect();
     console.log('Connected to MongoDB');
-
+// Check if admin user already exists
    
     const existingAdmin = await User.findOne({ email: 'admin@example.com' });
     if (existingAdmin) {
@@ -21,7 +21,7 @@ async function seedAdmin() {
       password: hashedPassword,
       role: 'admin'
     });
-
+// Save admin user
     await adminUser.save();
     console.log('Admin user created successfully');
     console.log('Email: admin@example.com');

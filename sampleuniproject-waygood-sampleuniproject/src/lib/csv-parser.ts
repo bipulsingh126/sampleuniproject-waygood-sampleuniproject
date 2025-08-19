@@ -13,6 +13,8 @@ export interface CSVCourseData {
   skill_level: string;
 }
 
+// Function to parse CSV buffer
+
 export async function parseCSVBuffer(buffer: Buffer): Promise<CSVCourseData[]> {
   return new Promise((resolve, reject) => {
     const results: CSVCourseData[] = [];
@@ -40,6 +42,7 @@ export async function parseCSVBuffer(buffer: Buffer): Promise<CSVCourseData[]> {
   });
 }
 
+// Function to validate course data
 export function validateCourseData(data: CSVCourseData): string[] {
   const errors: string[] = [];
 
@@ -61,6 +64,6 @@ export function validateCourseData(data: CSVCourseData): string[] {
   if (data.skill_level && !['beginner', 'intermediate', 'advanced'].includes(data.skill_level)) {
     errors.push('skill_level must be beginner, intermediate, or advanced');
   }
-
+  // Function to validate course data
   return errors;
 }

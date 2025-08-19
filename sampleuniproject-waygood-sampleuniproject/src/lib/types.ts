@@ -28,7 +28,7 @@ export interface University {
   admissionRequirements: string;
   campusLife: string;
 }
-
+// Interface for course
 export interface Course {
   uniqueId: string;
   courseName: string;
@@ -87,3 +87,4 @@ export interface Course {
   internationalApplicationDeadline: string;
   courseUrl: string;
 }
+// Interface for course data

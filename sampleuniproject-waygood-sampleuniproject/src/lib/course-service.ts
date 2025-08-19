@@ -10,7 +10,7 @@ export interface CourseSearchOptions {
   page?: number;
   limit?: number;
 }
-
+// Interface for search result
 export interface CourseSearchResult {
   courses: ICourseData[];
   totalCount: number;
@@ -22,7 +22,7 @@ export interface CourseSearchResult {
   };
   cached: boolean;
 }
-
+// Class for course service
 class CourseService {
   private readonly CACHE_TTL = {
     COURSE_DETAIL: 1800, // 30 minutes

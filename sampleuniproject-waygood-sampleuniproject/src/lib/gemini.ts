@@ -5,7 +5,7 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
   console.warn('GEMINI_API_KEY not found. Using mock recommendations.');
 }
-
+// Interface for user preferences
 export interface UserPreferences {
   topics: string[];
   skillLevel: 'beginner' | 'intermediate' | 'advanced';
@@ -13,7 +13,7 @@ export interface UserPreferences {
   format?: 'video' | 'text' | 'interactive' | 'any';
   budget?: 'free' | 'paid' | 'any';
 }
-
+// Interface for course recommendation
 export interface CourseRecommendation {
   id: string;
   title: string;
@@ -27,7 +27,7 @@ export interface CourseRecommendation {
   topics: string[];
   url?: string;
 }
-
+// Class for Gemini service
 class GeminiService {
   private genAI: GoogleGenerativeAI | null = null;
 
@@ -36,7 +36,7 @@ class GeminiService {
       this.genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
     }
   }
-
+// Function to generate course recommendations
   async generateCourseRecommendations(preferences: UserPreferences): Promise<CourseRecommendation[]> {
     if (!this.genAI) {
     
@@ -60,6 +60,7 @@ class GeminiService {
     }
   }
 
+// Function to build prompt for Gemini AI
   private buildPrompt(preferences: UserPreferences): string {
     return `
 Generate 5 course recommendations based on these user preferences:
@@ -87,6 +88,7 @@ Return only valid JSON array of 5 course objects.
     `;
   }
 
+// Function to parse AI response
   private parseAIResponse(text: string, preferences: UserPreferences): CourseRecommendation[] {
     try {
     
@@ -115,6 +117,7 @@ Return only valid JSON array of 5 course objects.
     return this.getMockRecommendations(preferences);
   }
 
+// Function to get mock recommendations
   private getMockRecommendations(preferences: UserPreferences): CourseRecommendation[] {
     const mockCourses: CourseRecommendation[] = [
       {

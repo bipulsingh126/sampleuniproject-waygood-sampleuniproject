@@ -1,5 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose';
-
+// User interface
 export interface IUser extends Document {
   email: string;
   password: string;
@@ -7,7 +7,7 @@ export interface IUser extends Document {
   createdAt: Date;
   updatedAt: Date;
 }
-
+// User schema
 const UserSchema: Schema = new Schema({
   email: {
     type: String,
